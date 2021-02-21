@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Geekbrains Lesson 2</title>
+    <script>
+      /*
+      Задание 1
+      Почему код даёт именно такие результаты?
+      */
+
+      // var a = 1,
+      //   b = 1,
+      //   c,
+      //   d;
+
+      // c = ++a;
+      //alert(c);
+      // 2, потому что инкремент в префиксной форме возвращает новое значение
+
+      // d = b++;
+      //alert(d);
+      // 1, потому что инкремент выполняется, но возвращается старое значение
+
+      // c = 2 + ++a;
+      //alert(c);
+      // 5, потому что ранее мы увеличили значение "а" когда присваивали новое значение для "с". А в данном случае мы снова увеличиваем "а", а значит "а" = 3
+
+      // d = 2 + b++;
+      //alert(d);
+      // 4, потому что во время присваивания значения "d" мы увеличили "b" на единицу и в данный момент "b" = 2
+
+      //alert(a);
+      // 3, потому что мы два раза выполняли инкремент "а"
+
+      //alert(b);
+      // 3, потому что выполнено два инкремента
+
+
+
+      /*
+      Задание 2
+      Чему будет равен x в примере ниже?
+      */
+
+      // var a = 2;
+      // var x = 1 + (a *= 2); // 5
+
+      /*
+      Задание 3
+      Объявить две целочисленные переменные a и b и задать им произвольные начальные значения. Затем написать скрипт, который работает по следующему принципу:
+
+      если a и b положительные, вывести их разность;
+      если а и b отрицательные, вывести их произведение;
+      если а и b разных знаков, вывести их сумму; ноль можно считать положительным числом.
+      */
+
+
+      // function askAgain() {
+      //   var q = confirm('Попробовать другие числа?');
+      //     if (q) {
+      //       ask();
+      //     } else {
+      //       return;
+      //     }
+      // }
+
+
+      // В решении используются арифметические функции, которые расположены ниже
+      // function ask() {
+      //   var a = prompt('Введите число A');
+      //   var b = prompt('Введите число B');
+      //   if (a > 0 && b > 0) {
+      //     alert(
+      //       `Разность чисел ${a} и ${b} равна ${diff(a,b)}`
+      //     );
+      //     askAgain();
+      //   } else if (a < 0 && b < 0) {
+      //     alert(
+      //       `Произведение чисел ${a} и ${b} равно ${mult(a,b)}`
+      //     );
+      //     askAgain();
+      //   } else if (a <= 0 || b <= 0) {
+      //     alert(
+      //       `Сумма ${a} и ${b} равна ${sum(a,b)}`
+      //     );
+      //     askAgain();
+      //   } else if (isNaN(a) || isNaN(b)) {
+      //     var q = confirm('Введите числа');
+      //     if (q) {
+      //       ask();
+      //     } else {
+      //       return;
+      //     }
+      //   }
+      // }
+
+      // ask();
+
+      /*
+      Задание 4
+      Присвоить переменной а значение в промежутке [0..15]. С помощью оператора switch организовать вывод чисел от a до 15.
+      */
+      function randomizer(min, max) {
+        var a = (Math.random() * (max - min) + min).toFixed(0);
+        return a;
+      }
+
+      var minRandomNumber = 0
+      var maxRandomNumber = 15
+      // var a = +randomizer(minRandomNumber, maxRandomNumber);
+
+      // console.log(`Рандомное число: ${a}`);
+
+
+      // Решение с рекурсивной функцией мне показалось более интересным.
+      // function countRandomNumbers(n) {
+      //   if (n < (maxRandomNumber+1)) {
+      //     countRandomNumbers(n+1)
+      //     console.log(n)
+      //   }
+      //   return;
+      // }
+      // countRandomNumbers(a)
+
+      // Решение со свитчем. Наверное можно как-то иначе это сделать, но я так и не понял как :)
+      // switch(random) {
+      //   case 0:
+      //     console.log(random++);
+      //   case 1:
+      //     console.log(random++);
+      //   case 2:
+      //     console.log(random++);
+      //   case 3:
+      //     console.log(random++);
+      //   case 4:
+      //     console.log(random++);
+      //   case 5:
+      //     console.log(random++);
+      //   case 6:
+      //     console.log(random++);
+      //   case 7:
+      //     console.log(random++);
+      //   case 8:
+      //     console.log(random++);
+      //   case 9:
+      //     console.log(random++);
+      //   case 10:
+      //     console.log(random++);
+      //   case 11:
+      //     console.log(random++);
+      //   case 12:
+      //     console.log(random++);
+      //   case 13:
+      //     console.log(random++);
+      //   case 14:
+      //     console.log(random++);
+      //   case 15:
+      //     console.log(random);
+      // }
+
+
+      // Задание 5
+      // Реализовать основные 4 арифметические операции в виде функций с двумя параметрами. Обязательно использовать оператор return.
+      function sum(a, b) {
+        var sum = +a + +b;
+        return sum;
+      }
+
+      function diff(a, b) {
+        var diff;
+        diff = Math.abs(a - b);
+        return diff;
+      }
+
+      function mult(a, b) {
+        var mult = a * b;
+        return mult;
+      }
+
+      function split(a, b) {
+        var split = a / b;
+        return split;
+      }
+
+
+      // Задание 6
+      // Реализовать функцию с тремя параметрами: function mathOperation(arg1, arg2, operation), где arg1, arg2 – значения аргументов, operation – строка с названием операции. В зависимости от переданного значения операции выполнить одну из арифметических операций (использовать функции из пункта 3) и вернуть полученное значение (использовать switch).
+
+      function calculate() {
+        var arg1 = prompt('введите первое число');
+        var arg2 = prompt('введите второе число');
+        var operation = prompt('введите название операции: sum, diff, mult, split');
+        var result = mathOperation(arg1, arg2, operation);
+        return result;
+      }
+
+      function mathOperation(arg1, arg2, operation) {
+        switch(operation) {
+          case "sum":
+              var result = sum(arg1, arg2);
+              return result;
+              break;
+          case "diff":
+              var result = diff(arg1, arg2);
+              return result;
+              break;
+          case "mult":
+              var result = mult(arg1, arg2);
+              return result;
+              break;
+          case "split":
+              var result = split(arg1, arg2);
+              return result;
+              break;
+          default:
+            console.log('Переданы не верные значения');
+        }
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
