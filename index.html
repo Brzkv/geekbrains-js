@@ -67,7 +67,6 @@
       // }
 
 
-      // В решении используются арифметические функции, которые расположены ниже
       // function ask() {
       //   var a = prompt('Введите число A');
       //   var b = prompt('Введите число B');
@@ -107,22 +106,18 @@
         return a;
       }
 
-      var minRandomNumber = 0
-      var maxRandomNumber = 15
-      // var a = +randomizer(minRandomNumber, maxRandomNumber);
+      var minRandomNumber = +prompt('минимальное число');
+      var maxRandomNumber = +prompt('максимальное число');
+      var random = +randomizer(minRandomNumber, maxRandomNumber);
 
-      // console.log(`Рандомное число: ${a}`);
-
-
-      // Решение с рекурсивной функцией мне показалось более интересным.
-      // function countRandomNumbers(n) {
-      //   if (n < (maxRandomNumber+1)) {
-      //     countRandomNumbers(n+1)
-      //     console.log(n)
-      //   }
-      //   return;
-      // }
-      // countRandomNumbers(a)
+      function countRandomNumbers(n) {
+        if (n < (maxRandomNumber+1)) {
+          countRandomNumbers(n+1)
+          console.log(n)
+        }
+      }
+      console.log(`Рандомное число: ${random}`);
+      countRandomNumbers(random)
 
       // Решение со свитчем. Наверное можно как-то иначе это сделать, но я так и не понял как :)
       // switch(random) {
@@ -180,8 +175,10 @@
       }
 
       function split(a, b) {
-        var split = a / b;
-        return split;
+        if (b != 0) {
+          var split = a / b;
+          return split;
+        }
       }
 
 
